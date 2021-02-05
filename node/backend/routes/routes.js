@@ -22,4 +22,7 @@ router.post('/singup', (request, response) => {
 		})
 })
 
+
+router.get('/signin')
+
 module.exports = router;
