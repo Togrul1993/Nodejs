@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import postRoutes from './routes/post'
+
 
 
 
@@ -21,6 +23,8 @@ app.get("/", (req, res) => {
 		message: "Node js Reactjs  islemi"
 	});
 });
+
+app.use('/posts', postRoutes);
 
 const PORT = process.env.PORT || 5000;
 
