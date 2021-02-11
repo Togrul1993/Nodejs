@@ -1,12 +1,25 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node js Express js",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "Togrul Salmanli",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0"
+  }
 }
