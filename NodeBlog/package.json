@@ -1,0 +1,17 @@
+{
+  "name": "nodeblog",
+  "version": "1.0.0",
+  "description": "Node Blog",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test.js"
+  },
+  "author": "Togrul Salmanli",
+  "license": "ISC"
+}
