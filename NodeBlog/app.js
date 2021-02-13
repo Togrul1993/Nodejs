@@ -1,16 +1,20 @@
 const express = require('express');
+let ejs = require('ejs');
 
 const app = express();
+
+app.set('view engine', 'ejs');
+
 
 app.listen(5050);
 
 app.get('/', (req, res) => {
-	res.status(200).sendFile('./public/index.html', { root: __dirname });
+	res.render('index');
 });
 
 
 app.get('/about', (req, res) => {
-	res.status(200).sendFile('./public/about.html', { root: __dirname });
+	res.render('about');
 });
 
 app.get('/about-us', (req, res) => {
@@ -18,5 +22,5 @@ app.get('/about-us', (req, res) => {
 });
 
 app.use((req, res) => {
-	res.status(404).sendFile('./public/404.html', { root: __dirname });
+	res.status(404).render('404');
 })
