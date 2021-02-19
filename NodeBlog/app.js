@@ -36,6 +36,14 @@ app.get('/contact', (req, res) => {
 	res.render('contact', { title: "Contact" });
 });
 
+app.get('/login', (req, res) => {
+	res.render('login', { title: "Login" });
+});
+
+app.get('/singup', (req, res) => {
+	res.render('singup', { title: "Sing Up" });
+});
+
 app.use((req, res) => {
 	res.status(404).render('404', { title: "Eror" });
 });
