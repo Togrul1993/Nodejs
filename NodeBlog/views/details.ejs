@@ -6,13 +6,20 @@
 <body>
 	<%-include('./inc/navbar')%>
 	
-	<div class="container ">
-		<img src=<%=blog.image%> alt=<%=blog.title%>/>
-		<h2><%=blog.title%></h2>
-		<p><%=blog.longtxt%></p>
-		<span><%=blog.updatedAt%></span>
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+				  <img src=<%=blog.image%> class="card-img-top" style="height: 300px;" alt=<%=blog.title%>>
+				  <div class="card-body">
+				    <h5 class="card-title text-center"><%=blog.title%></h5>
+				    <p class="card-text  text-center"><%=blog.longtxt%></p>
+				  </div>
+				  <div class="card-footer"><%=blog.updatedAt%></div>
+				</div>
+			</div>
+		</div>
 	</div>
-
 	<%-include('./inc/folderjs')%>
 </body>
 </html>

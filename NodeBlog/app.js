@@ -70,6 +70,27 @@ app.get('/blog', (req, res) => {
 });
 
 
+app.get('/blog/:id', (req, res) => {
+	const id = req.params.id;
+	console.log(id);
+
+	Blog.findById(id)
+		.then((result) => {
+			res.render('details', { title: 'Blog Details', blog: result });
+		})
+		.catch((err) => {
+			res.status(404).render('404', { title: "Eror" });
+		})
+
+})
+
+
+app.get('/add', (req, res) => {
+	res.render('add', { title: "Add Blog" });
+});
+
+
+
 app.get('/contact', (req, res) => {
 	res.render('contact', { title: "Contact" });
 });

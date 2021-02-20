@@ -42,9 +42,9 @@
 				  <img src=<%=blog.image%> class="card-img-top" alt=<%=blog.title%>>
 
 				  <div class="card-body">
-				    <h5 class="card-title"><%=blog.title%></h5>
-				    <p class="card-text"><%=blog.shorttxt%></p>
-				    <a href="/details" class="btn btn-primary">Read More</a>
+				    <h5 class="card-title"><%=blog.title.substring(0,20)%></h5>
+				    <p class="card-text"><%=blog.longtxt.substring(0,100)%><span>...</span></p>
+				    <a href="/blog/<%=blog._id%>" class="btn btn-primary">Read More</a>
 				  </div>
 				</div>
 			</div>

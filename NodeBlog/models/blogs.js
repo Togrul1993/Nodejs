@@ -8,11 +8,6 @@ const blogSchema = new Schema({
 		require: true
 	},
 
-	shorttxt: {
-		type: String,
-		require: true
-	},
-
 	image: {
 		type: String,
 		require: true
