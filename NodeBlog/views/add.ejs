@@ -6,29 +6,36 @@
 <body>
 	<%-include('./inc/navbar')%>
 		<div class="container " style="position: relative; height: 100vh;">
-		<form style="position: absolute; width: 450px;transform: translate(-50%,-50%);
+
+		<form action="/add" method="POST" style="position: absolute; width: 450px;transform: translate(-50%,-50%);
 		left: 50%;top: 50%;background-color: brown;padding: 15px;color: white;">
 		
 		  <div class="mb-3">
 		    <label for="title" class="form-label">Title</label>
-		    <input type="text" class="form-control" id="title" aria-describedby="title" required placeholder="Max 50 string">
+		    <input type="text" name="title" class="form-control" id="title" aria-describedby="title" required placeholder="Max 50 string">
 		  </div>
 
 		  	<div class="mb-3">
-			  	<label for="text" class="form-label">Text</label>
-				  <textarea class="form-control" id="text" aria-describedby="text" required placeholder="Min 300 string" rows="12"></textarea>
+			  	<label for="longtxt" class="form-label">Text</label>
+				  <textarea name="longtxt" class="form-control" id="longtxt" aria-describedby="longtxt" required placeholder="Min 300 string" rows="12"></textarea>
 			</div>
 
+			
 		  <div class="mb-3">
-		    <label for="image" class="form-label">Image URL</label>
-		    <input type="text" class="form-control" id="image" required placeholder="Image URL">
+		    <label for="imageurl" class="form-label">Image URL</label>
+		    <input type="text" name="imageurl" class="form-control" id="imageurl"  placeholder="Image URL">
 		  </div>
 
-
+		  
+		  
+<!--
 		  <div class="mb-3">
-		  	<label for="image" class="form-label">Image File</label>
-		  	<input type="file" class="form-control" id="image" required>
-		</div>
+			  <label for="image" class="form-label">Image</label>
+			  <input type="file" name="image" class="form-control" id="image">
+			</div>
+-->
+
+
 
 		  <button type="submit" class="btn btn-primary">Add Blog</button>
 		</form>

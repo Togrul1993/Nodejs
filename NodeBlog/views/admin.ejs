@@ -33,19 +33,32 @@
 
 
 	<div class="container mt-3">
+
+		<div class="row justify-content-end mb-5 mt-5">
+			<a href="/add" class="btn btn-danger">Add Blog</a>
+		</div>
+
+
 		<div class="row d-flex justify-content-center">
 
 			<% blogs.forEach(blog=>{ %>
 
 			<div class="col-lg-4 mb-4">
 				<div class="card" style="width: 18rem;">
-				  <img src=<%=blog.imageurl%> class="card-img-top" alt=<%=blog.title%>>
+				  <img src=<%=blog.imageurl%> class="card-img-top" alt=<%=blog.title%> />
 
 				  <div class="card-body">
 				    <h5 class="card-title"><%=blog.title.substring(0,20)%></h5>
 				    <p class="card-text"><%=blog.longtxt.substring(0,100)%><span>...</span></p>
-				    <a href="/blog/<%=blog._id%>" class="btn btn-primary">Read More</a>
+				    
 				  </div>
+
+				  <div class="card-footer d-flex justify-content-around">
+					<a href="/blog/<%=blog._id%>" class="btn btn-primary">Edit</a>
+
+					 <a class="del" data-doc="<%=blog._id%>" >Delete</a> 
+				  </div>
+
 				</div>
 			</div>
 
@@ -54,5 +67,25 @@
 	</div>
 
 	<%-include('./inc/folderjs')%>
+
+
+	<script>
+		const del=document.querySelector('a.del');
+
+
+		del.addEventListener('click', (e)=>{
+			const endpoint='/admin/delete/${del.dataset.doc}';
+
+
+			fetch(endpoint,{
+				method:'DELETE'
+			})
+			.then((response)=>response.json())
+			.then((data)=>window.location.href=data.link)
+			.catch((err)=>{
+				console.log(err)
+			})
+		})
+	</script>
 </body>
 </html>

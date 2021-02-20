@@ -8,7 +8,6 @@ const Blog = require('./models/blogs');
 
 const app = express();
 
-
 const dbUrl = "mongodb+srv://togrul:togrul123456@cluster0.dred2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 mongoose.connect(dbUrl, {
@@ -29,9 +28,23 @@ app.set('view engine', 'ejs');
 
 
 
-app.use(express.static('public'))
+app.use(express.static('public'));
+
+app.use(express.urlencoded({ extended: true }));
 
 app.use(morgan('tiny'));
+
+
+app.get('/admin', (req, res) => {
+	Blog.find()
+		.then((result) => {
+			res.render('admin', { title: "Admin", blogs: result.sort((a, b) => { return a.id < b.id ? 1 : a.id > b.id ? -1 : 0 }) });
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+});
+
 
 
 
@@ -58,6 +71,8 @@ app.get('/about-us', (req, res) => {
 });
 
 
+
+
 app.get('/blog', (req, res) => {
 	Blog.find()
 		.then((result) => {
@@ -70,9 +85,11 @@ app.get('/blog', (req, res) => {
 });
 
 
+
+
 app.get('/blog/:id', (req, res) => {
 	const id = req.params.id;
-	console.log(id);
+
 
 	Blog.findById(id)
 		.then((result) => {
@@ -88,6 +105,36 @@ app.get('/blog/:id', (req, res) => {
 app.get('/add', (req, res) => {
 	res.render('add', { title: "Add Blog" });
 });
+
+
+app.post('/add', (req, res) => {
+
+	const blog = new Blog(req.body);
+
+	blog.save()
+
+		.then((result) => {
+			res.redirect('/admin')
+		})
+		.catch((err) => {
+			console.log(err)
+		})
+
+
+})
+
+
+app.delete('/admin/delete/:id', (req, res) => {
+	const id = req.params.id;
+	Blog.findByIdAndDelete(id)
+		.then((result) => {
+			res.json({ link: '/admin' })
+		})
+		.catch((err) => {
+			console.log(err)
+		})
+
+})
 
 
 

@@ -12,6 +12,10 @@ const blogSchema = new Schema({
 		type: String,
 		require: true
 	},
+	imageurl: {
+		type: String,
+		require: true
+	},
 	longtxt: {
 		type: String,
 		require: true
