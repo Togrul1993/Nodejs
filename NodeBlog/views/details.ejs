@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<%-include('./inc/head')%>
+</head>
+<body>
+	<%-include('./inc/navbar')%>
+	
+	<div class="container ">
+		<img src=<%=blog.image%> alt=<%=blog.title%>/>
+		<h2><%=blog.title%></h2>
+		<p><%=blog.longtxt%></p>
+		<span><%=blog.updatedAt%></span>
+	</div>
+
+	<%-include('./inc/folderjs')%>
+</body>
+</html>
