@@ -126,13 +126,6 @@ app.post('/add', (req, res) => {
 
 app.delete('/admin/delete/:id', (req, res) => {
 	const id = req.params.id;
-	Blog.findByIdAndDelete(id)
-		.then((result) => {
-			res.json({ link: '/admin' })
-		})
-		.catch((err) => {
-			console.log(err)
-		})
 
 })
 
